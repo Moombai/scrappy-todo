@@ -1,7 +1,19 @@
 import React from 'react';
+import { Input } from './Input';
+import { ListItems } from './ListItems';
 
 export class Todo extends React.Component {
 	render() {
-		return <h1>Greetings Creatins I am the todo section!</h1>;
+		return (
+			<div>
+				<Input />
+				<ul>
+					<ListItems />
+					<ListItems />
+					<ListItems />
+					<ListItems />
+				</ul>
+			</div>
+		);
 	}
-}
+};
