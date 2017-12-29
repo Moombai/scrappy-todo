@@ -5,7 +5,7 @@ import { ListItems } from './ListItems';
 export class Todo extends React.Component {
 	render() {
 		return (
-			<div>
+			<div className="list-container">
 				<Input />
 				<ul>
 					<ListItems />
