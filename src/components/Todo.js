@@ -8,10 +8,11 @@ export class Todo extends React.Component {
 			<div className="list-container">
 				<Input />
 				<ul>
-					<ListItems />
-					<ListItems />
-					<ListItems />
-					<ListItems />
+					{
+						Object
+							.keys(this.props.task)
+							.map(key => <ListItems key={key} details={this.props.task[key]} />)
+					}
 				</ul>
 			</div>
 		);
