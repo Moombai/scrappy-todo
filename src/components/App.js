@@ -16,8 +16,9 @@ class App extends Component {
   	this.addTask = this.addTask.bind(this);
   }
   
-  addTask() {
-  	let stateCopy = [...this.state.tasks, "Easy does it!"];
+  addTask(newTask) {
+  	// create a copy of the existing state with the newTask added
+  	let stateCopy = [...this.state.tasks, newTask];
   	this.setState({
   		tasks: stateCopy
   	});
@@ -27,7 +28,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Todo task={this.state.tasks} />
+        <Todo task={this.state.tasks} addTask={this.addTask}/>
       </div>
     );
   }

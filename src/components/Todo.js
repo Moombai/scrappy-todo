@@ -6,7 +6,7 @@ export class Todo extends React.Component {
 	render() {
 		return (
 			<div className="list-container">
-				<Input />
+				<Input addTask={this.props.addTask} />
 				<ul>
 					{
 						Object
