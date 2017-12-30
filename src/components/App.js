@@ -13,7 +13,16 @@ class App extends Component {
   		"I'm just coming along for the ride"
   		]
   	}
+  	this.addTask = this.addTask.bind(this);
   }
+  
+  addTask() {
+  	let stateCopy = [...this.state.tasks, "Easy does it!"];
+  	this.setState({
+  		tasks: stateCopy
+  	});
+  }
+
   render() {
     return (
       <div>
