@@ -14,6 +14,7 @@ class App extends Component {
   		]
   	}
   	this.addTask = this.addTask.bind(this);
+  	this.deleteTask = this.deleteTask.bind(this);
   }
   
   addTask(newTask) {
@@ -24,11 +25,19 @@ class App extends Component {
   	});
   }
 
+  deleteTask(taskToDelete) {
+  	let stateCopy = [...this.state.tasks];
+  	stateCopy.splice(taskToDelete,1);
+  	this.setState({
+  		tasks: stateCopy
+  	});
+  }
+
   render() {
     return (
       <div>
         <Header />
-        <Todo task={this.state.tasks} addTask={this.addTask}/>
+        <Todo task={this.state.tasks} addTask={this.addTask} deleteTask={this.deleteTask} />
       </div>
     );
   }
