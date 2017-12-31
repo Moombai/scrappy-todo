@@ -8,9 +8,9 @@ class App extends Component {
   	super();
   	this.state = {
   		tasks: [
-  		"Hello I'm all alone",
-  		"maybe I'm not alone",
-  		"I'm just coming along for the ride"
+  		"Change the tasks state from an array to an object so it's more flexible",
+  		"Add button to mark task as completed",
+  		"Add filters to show only tasks completed"
   		]
   	}
   	this.addTask = this.addTask.bind(this);
