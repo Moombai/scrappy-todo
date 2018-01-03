@@ -8,9 +8,18 @@ class App extends Component {
   	super();
   	this.state = {
   		tasks: [
-  		"Change the tasks state from an array to an object so it's more flexible",
-  		"Add button to mark task as completed",
-  		"Add filters to show only tasks completed"
+        {
+          action: "Change the tasks state from an array to an object so it's more flexible",
+          status: "incomplete"
+        },
+        {
+          action: "Add button to mark task as completed",
+          status: "incomplete"
+        },
+        {
+          action: "Add filters to show only tasks completed",
+          status: "incomplete"
+        }
   		]
   	}
   	this.addTask = this.addTask.bind(this);

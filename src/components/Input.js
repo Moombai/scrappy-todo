@@ -5,7 +5,10 @@ export class Input extends React.Component {
 		// Prevent the form submission from re-rendering the page
 		event.preventDefault();
 		// grab task from the form
-		const newTask = this.listItem.value;
+		const newTask = {
+			action: this.listItem.value,
+			status: "incomplete"
+		}
 		this.props.addTask(newTask);
 		// reset the form after we are done
 		this.taskForm.reset();

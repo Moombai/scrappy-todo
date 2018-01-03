@@ -17,7 +17,7 @@ export class Todo extends React.Component {
 							.map(key => <ListItems 
 								key={key} 
 								index={key}
-								details={this.props.task[key]}
+								details={this.props.task[key].action}
 								deleteTask={this.props.deleteTask}  
 								/>)
 					}
