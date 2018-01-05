@@ -9,7 +9,7 @@ class App extends Component {
   	this.state = {
   		tasks: [
         {
-          action: "Change the tasks state from an array to an object so it's more flexible",
+          action: "Update my state with newly updated Object",
           status: "incomplete"
         },
         {
@@ -24,6 +24,7 @@ class App extends Component {
   	}
   	this.addTask = this.addTask.bind(this);
   	this.deleteTask = this.deleteTask.bind(this);
+    this.updateTaskStatus = this.updateTaskStatus.bind(this);
   }
   
   addTask(newTask) {
@@ -32,6 +33,23 @@ class App extends Component {
   	this.setState({
   		tasks: stateCopy
   	});
+  }
+
+  updateTaskStatus(taskToUpdate) {
+    //accepts the current task using a key/index reference {}
+    // take a copy of the current state
+    let stateCopy = [...this.state.tasks];
+    let currentTaskStatus = stateCopy[taskToUpdate].status;
+    //if status is completed render completed otherwise render incomplete
+    if(currentTaskStatus === 'incomplete') {
+      stateCopy[taskToUpdate].status = 'complete';
+    } else {
+      stateCopy[taskToUpdate].status = 'incomplete';
+    }
+    // set state and render
+    this.setState({
+      tasks: stateCopy
+    });
   }
 
   deleteTask(taskToDelete) {
@@ -46,7 +64,12 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Todo task={this.state.tasks} addTask={this.addTask} deleteTask={this.deleteTask} />
+        <Todo 
+          task={this.state.tasks} 
+          addTask={this.addTask}
+          toggleStatus={this.updateTaskStatus} 
+          deleteTask={this.deleteTask} 
+        />
       </div>
     );
   }

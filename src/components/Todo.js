@@ -17,6 +17,8 @@ export class Todo extends React.Component {
 							.map(key => <ListItems 
 								key={key} 
 								index={key}
+								status={this.props.task[key].status}
+								toggleStatus={this.props.toggleStatus}
 								details={this.props.task[key].action}
 								deleteTask={this.props.deleteTask}  
 								/>)
