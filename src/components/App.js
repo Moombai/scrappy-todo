@@ -64,11 +64,11 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Todo 
-          task={this.state.tasks} 
+        <Todo
+          task={this.state.tasks}
           addTask={this.addTask}
-          toggleStatus={this.updateTaskStatus} 
-          deleteTask={this.deleteTask} 
+          toggleStatus={this.updateTaskStatus}
+          deleteTask={this.deleteTask}
         />
       </div>
     );
