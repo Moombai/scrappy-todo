@@ -9,22 +9,32 @@ class App extends Component {
   	this.state = {
   		tasks: [
         {
-          action: "Update my state with newly updated Object",
+          action: "Refactor the todo component. It's very messy",
+          status: "incomplete"
+        },
+        {
+          action: "Remove the linting errors",
+          status: "incomplete"
+        },
+        {
+          action: "Clean up the comments!",
           status: "incomplete"
         },
         {
           action: "Add button to mark task as completed",
-          status: "incomplete"
+          status: "complete"
         },
         {
           action: "Add filters to show only tasks completed",
-          status: "incomplete"
+          status: "complete"
         }
-  		]
+  		],
+      filtered: true
   	}
   	this.addTask = this.addTask.bind(this);
   	this.deleteTask = this.deleteTask.bind(this);
     this.updateTaskStatus = this.updateTaskStatus.bind(this);
+    this.toggleFilter = this.toggleFilter.bind(this);
   }
   
   addTask(newTask) {
@@ -60,15 +70,22 @@ class App extends Component {
   	});
   }
 
+  toggleFilter() {
+    this.setState({ filtered: !this.state.filtered })
+    console.log("The current state is: ", this.state.filtered);
+  }
+
   render() {
     return (
       <div>
         <Header />
         <Todo
           task={this.state.tasks}
+          filterState={this.state.filtered}
           addTask={this.addTask}
           toggleStatus={this.updateTaskStatus}
           deleteTask={this.deleteTask}
+          toggleFilter={this.toggleFilter}
         />
       </div>
     );
