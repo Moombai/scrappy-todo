@@ -13,6 +13,10 @@ class App extends Component {
           status: "incomplete"
         },
         {
+          action: "Add CSS and make it look pretty. ",
+          status: "incomplete"
+        },
+        {
           action: "Remove the linting errors",
           status: "incomplete"
         },
