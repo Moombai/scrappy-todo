@@ -1,4 +1,5 @@
 import React from 'react';
+import { Col, Row } from 'react-bootstrap';
 import { Input } from './Input';
 import { ListItems } from './ListItems';
 import Filter from './Filter';
@@ -9,7 +10,6 @@ export class Todo extends React.Component {
 			are not available via props.  
 		**/
 		const filterState = this.props.filterState;
-		const renderedTasks = "";
 		// TODO: Render all the task or tasks completed depending on the filter state
 		const allTasks = Object
 			.keys(this.props.task)
@@ -24,46 +24,43 @@ export class Todo extends React.Component {
 
 		const completeOnly = Object
 				.keys(this.props.task)
-				.map(key => {
-					if(this.props.task[key].status === "complete")
-
-					return <ListItems 
-							key={key} 
-							index={key}
-							status={this.props.task[key].status}
-							toggleStatus={this.props.toggleStatus}
-							details={this.props.task[key].action}
-							deleteTask={this.props.deleteTask}
-					/>});
-
-		if (filterState === true) {
-			return (
-				<div className="list-container">
-					<Input addTask={this.props.addTask} />
-					<Filter 
-						toggleFilter={this.props.toggleFilter} 
+			  .filter(key => this.props.task[key].status === "complete" )
+				.map(key => (
+					<ListItems
+						key={key}
+						index={key}
+						status={this.props.task[key].status}
+						toggleStatus={this.props.toggleStatus}
+						details={this.props.task[key].action}
+						deleteTask={this.props.deleteTask}
 					/>
-					<ul>
-						{
-							allTasks
-						}
-					</ul>
-				</div>
-			);
-		} 
+				));
 
 		return (
-			<div className="list-container">
-				<Input addTask={this.props.addTask} />
-				<Filter 
-					toggleFilter={this.props.toggleFilter} 
-				/>
-				<ul>
-					{
-						completeOnly
-					}
-				</ul>
-			</div>
+			<Row>
+				<Col md={6} mdOffset={3}>
+					<div className="list-container">
+							<Row>
+								<Col className="list-header" sm={7}>
+									<Input addTask={this.props.addTask} />
+								</Col>
+								<Col sm={5}>
+									<Filter
+										toggleFilter={this.props.toggleFilter}
+										filtered={this.props.filterState}
+									/>
+								</Col>
+							</Row>
+							<div className="todo-wrapper">
+								<ul>
+									{
+										filterState === false ? allTasks : completeOnly
+									}
+								</ul>
+							</div>
+					</div>
+				</Col>
+			</Row>
 		);	
 	}
 };

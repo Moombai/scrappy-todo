@@ -1,27 +1,40 @@
 import React from 'react';
+import { Button, FormGroup, FormControl } from 'react-bootstrap';
 
 export class Input extends React.Component {
-	handleUpdate(event){
-		// Prevent the form submission from re-rendering the page
+	constructor(props) {
+		super(props);
+		this.state = {value: ''};
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	handleSubmit(event){
 		event.preventDefault();
 		// grab task from the form
-		const newTask = {
-			action: this.listItem.value,
-			status: "incomplete"
-		}
+		const newTask = {action: this.state.value, status: "incomplete"}
 		this.props.addTask(newTask);
 		// reset the form after we are done
-		this.taskForm.reset();
+		this.setState({value: '' })
 	}
+
+	handleChange(event) {
+		this.setState({value: event.target.value});
+	}
+
 	render() {
-		// The return function will pass an event to handleUpdate function
-		/** We also use refs to capture values from form which we will then use in the
-			handleUpdate function
-		**/
 		return ( 
-			<form ref={(input) => this.taskForm = input} onSubmit={(e) => this.handleUpdate(e)}>
-			Thing to do: <input ref={(input) => this.listItem = input} type="text" name="thingtodo" placeholder="Add list items" />
-			<button type="submit">Add task</button>
+			<form onSubmit={(e) => this.handleSubmit(e)}>
+				<FormGroup>
+					{/* FormControl will render an input field */}
+					<FormControl
+						type="text"
+						value={this.state.value}
+						placeholder="Add thing todo"
+						onChange={this.handleChange}
+					/>
+					<Button bsStyle="primary" bsSize="small" type="submit">Add task</Button>
+				</FormGroup>
 			</form>
 		)
 	}

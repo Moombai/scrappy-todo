@@ -33,7 +33,7 @@ class App extends Component {
           status: "complete"
         }
   		],
-      filtered: true
+      filtered: false
   	}
   	this.addTask = this.addTask.bind(this);
   	this.deleteTask = this.deleteTask.bind(this);
@@ -76,7 +76,6 @@ class App extends Component {
 
   toggleFilter() {
     this.setState({ filtered: !this.state.filtered })
-    console.log("The current state is: ", this.state.filtered);
   }
 
   render() {

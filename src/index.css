@@ -1,31 +1,142 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+	font-family: sans-serif;
+	background-color: #ffffff;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23faebd7' fill-opacity='0.61' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 }
 
 header {
-	background-color: grey;
+	background-color: #bd4d4d;
 	color: white;
 	margin-bottom: 20px;
 	padding-bottom: 10px;
-	padding-left: 10%;
+	text-align: center;
 }
 
-header h1 {
+.main-header-title {
 	margin-top: 0;
 	padding-top: 15px;
+	font-family: 'Righteous', cursive;
 }
 
 .list-container {
-	padding-left: 10%;
-	max-width: 50%;
+	margin-top: 25px;
+	background-color: white;
+	padding: 20px 15px 10px 15px;
+	border-radius: 5px;
+	border:1px solid lightgrey;
+	box-shadow: 5px 5px 5px rgb(175, 175, 175);
+}
+
+.list-container .glyphicon {
+	color: white;
+}
+
+.incomplete-task {
+	background-color: #e81d1d;
+	border-color: #e81d1d;
+	border-radius: 2px;
+}
+
+.complete-task {
+	border-radius: 2px;
+	background-color: forestgreen;
+	border-color: forestgreen;
+}
+
+.list-header {
+	margin-bottom: 10px;
+}
+
+.list-filter {
+	float: right;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .item-description {
-	padding-bottom: 2px;
-	padding-top: 8px;
+	padding-bottom: 10px;
+	padding-top: 10px;
 	margin-left: -40px;
 	list-style-type: none;
-	border-bottom:1px solid #000;
+	border-bottom:1px solid #f3f3f3;
+	position: relative;
+}
+
+.item-buttons {
+	position: absolute;
+	right: 0;
+	top: 5px;
+}
+
+.item-details {
+	max-width: 72%;
+}
+
+@media (min-width: 678px) {
+	.item-details {
+		max-width: 84%;
+	}
+}
+
+.list-container form {
+	display: inline;
+}
+
+.list-container .form-group {
+	display: inline;
+}
+
+.list-container .form-control {
+	display: inline-block;
+  *display: inline;
+  *zoom: 1;
+	width: 73%;
+	margin-right: 5px;
+}
+
+.list-container input[type=checkbox], input[type=radio] {
+	margin-left: 5px;
+}
+
+/** Media Queries **/
+@media (max-width: 1083px) {
+	.list-container .form-control {
+		width: 65%;
+	}
+
+	.list-filter {
+		font-size: 13px;
+	}
+}
+
+@media (max-width: 767px) {
+	.list-filter {
+		float: none;
+		text-align: center;
+	}
+
+	.list-header {
+		text-align: center;
+	}
+}
+
+@media (max-width: 794px) {
+	.list-container .form-control {
+		width: 63%;
+	}	
+}
+
+@media (min-width: 0 ) and (max-width: 991px) {
+	.list-container {
+		width: 85%;
+		margin: 25px auto 0;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	.list-container .form-control {
+		width: 79%;
+	}
 }

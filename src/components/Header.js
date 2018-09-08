@@ -3,8 +3,8 @@ import React from 'react';
 export const Header = () => {
 	return (
 		<header>
-			<h1>Welcome to the TODO list app</h1>
-			<p>Because a TODO list is one thing every developer NEEDS in their life! 😁</p>
+			<h1 className="main-header-title">TODO List</h1>
+			<p>Easily keep track of your day to day tasks and delete when you're done!</p>
 		</header>
 	);
 }
