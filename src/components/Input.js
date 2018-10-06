@@ -12,8 +12,7 @@ export class Input extends React.Component {
 	handleSubmit(event){
 		event.preventDefault();
 		// grab task from the form
-		const newTask = {action: this.state.value, status: "incomplete"}
-		this.props.addTask(newTask);
+		this.props.addTodo(this.state.value);
 		// reset the form after we are done
 		this.setState({value: '' })
 	}

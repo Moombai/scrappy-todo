@@ -2,13 +2,13 @@ import React from 'react';
 import { Icon } from './Icon';
 import { Button } from 'react-bootstrap';
 
-export class ListItems extends React.Component {
+class ListItems extends React.Component {
 	render() {
 		const taskNumber = this.props.index;
 		const taskStatus = this.props.status;
-		const deleteButton = <Button bsStyle="danger" bsSize="small" onClick={ (task) => this.props.deleteTask(taskNumber) }>Delete</Button>;
+		const deleteButton = <Button bsStyle="danger" bsSize="small" onClick={ () => this.props.deleteTodo(taskNumber) }>Delete</Button>;
 		const toggleStatus = 
-			<button onClick={ (status) => this.props.toggleStatus(taskNumber) }
+			<button onClick={ () => this.props.toggleTodo(taskNumber) }
 				className={taskStatus === "complete" ? "complete-task" : "incomplete-task"}
 			>
 				<Icon status={taskStatus} />
@@ -21,3 +21,5 @@ export class ListItems extends React.Component {
 		);
 	}
 }
+
+export default ListItems;

@@ -20,5 +20,3 @@ class Filter extends React.Component {
 }
 
 export default Filter;
-
-// (task) => this.props.deleteTask(taskNumber)
